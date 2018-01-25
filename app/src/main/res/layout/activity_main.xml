@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.trust.calculatelayout.view.TrustTelescopicLinerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    tools:context="com.trust.calculatelayout.MainActivity">
+
+
+    <TextView
+        android:background="#ff0000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:trust_layout_width = "100"
+        app:trust_layout_height = "100"/>
+
+    <TextView
+        android:background="#ffff00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:trust_layout_width = "100"
+        app:trust_layout_marginTop = "100"
+        app:trust_layout_height = "100"/>
+
+    <TextView
+        android:background="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:trust_layout_width = "100"
+        app:trust_layout_marginLeft = "100"
+        app:trust_layout_height = "100"/>
+
+
+    <TextView
+        android:background="#00ffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:trust_layout_width = "100"
+        app:trust_layout_marginBottom = "100"
+        app:trust_layout_height = "100"/>
+
+    <TextView
+        android:layout_gravity="right"
+        android:background="#0000ff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:trust_layout_width = "100"
+        app:trust_layout_marginRight = "100"
+        app:trust_layout_height = "100"/>
+
+
+
+    <com.trust.calculatelayout.view.TrustTelescopicRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        app:trust_layout_width = "700"
+        android:background="#ff00ff"
+        app:trust_layout_height = "500">
+
+
+        <TextView
+            android:background="#3f3f3e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:trust_layout_width = "100"
+            app:trust_layout_height = "100"/>
+
+
+        <TextView
+            app:trust_layout_marginTop = "120"
+            android:background="#a1c5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:trust_layout_width = "100"
+            app:trust_layout_height = "100"/>
+
+        <TextView
+            app:trust_layout_marginLeft = "100"
+            app:trust_layout_marginTop = "220"
+            android:background="#a1c5ff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:trust_layout_width = "100"
+            app:trust_layout_height = "100"
+            />
+
+
+        <TextView
+            app:trust_layout_marginTop = "320"
+            android:background="#ffc5a1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:trust_layout_width = "100"
+            app:trust_layout_height = "100"/>
+
+
+
+        <TextView
+            android:layout_alignParentRight="true"
+            app:trust_layout_marginTop = "370"
+            android:background="#ffc51f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:trust_layout_width = "100"
+            app:trust_layout_height = "100"/>
+
+    </com.trust.calculatelayout.view.TrustTelescopicRelativeLayout>
+
+</com.trust.calculatelayout.view.TrustTelescopicLinerLayout>

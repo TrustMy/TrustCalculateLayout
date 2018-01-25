@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TrustTelescopicStyle">
+        <attr name="trust_layout_width" format="float"/>
+        <attr name="trust_layout_height" format="float"/>
+        <attr name="trust_layout_marginTop" format="float"/>
+        <attr name="trust_layout_marginLeft" format="float"/>
+        <attr name="trust_layout_marginBottom" format="float"/>
+        <attr name="trust_layout_marginRight" format="float"/>
+
+    </declare-styleable>
+
+</resources>
