@@ -56,12 +56,18 @@ public class TrustCalculateTool {
                     }
 
                     if (heightY >0) {
-                        layoutParams.height = (int) TrustUITool.getInstance().getHeight(heightY);
+                        if(heightY != widthX){
+                            layoutParams.height = (int) TrustUITool.getInstance().getHeight(heightY);
+                        }else{
+                            layoutParams.height = (int) TrustUITool.getInstance().getWith(widthX);
+                        }
                     }else if(heightY == -1){
                         layoutParams.height = height1;
                     }else{
                         layoutParams.height = 0;
                     }
+
+
                     marginTop = TrustUITool.getInstance().getHeight(marginTop);
                     marginLeft = TrustUITool.getInstance().getWith(marginLeft);
                     marginRight = TrustUITool.getInstance().getWith(marginRight);

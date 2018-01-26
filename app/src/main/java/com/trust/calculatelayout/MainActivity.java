@@ -18,6 +18,6 @@ public class MainActivity extends Activity {
         //初始化
         TrustUITool.initTrustUITool(this);
         //设置基准分辨率
-        TrustUITool.setBenchmark(720,1280);
+        TrustUITool.setBenchmark(1080,2106);
     }
 }
