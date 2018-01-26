@@ -15,7 +15,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //初始化
         TrustUITool.initTrustUITool(this);
+        //设置基准分辨率
         TrustUITool.setBenchmark(720,1280);
     }
 }
