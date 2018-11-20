@@ -1,12 +1,76 @@
 apply plugin: 'com.android.application'
 
+def gitCommitShortHash = 'git log -1 --pretty=%h'.execute([], project.rootDir).text.trim()
+def gitCommitDate = 'git log -1 --pretty=%ci'.execute([], project.rootDir).text.trim().split()[0]
+def gitShortShaDate = gitCommitShortHash + "_" + gitCommitDate
+
+// Auto-incrementing commit count based on counting commits to HEAD (Build #543)
+def gitCommitCount = Integer.parseInt('git rev-list HEAD --count'.execute([], project.rootDir).text.trim())
+
+// I want to use git tags as my version names (1.2.2)
+def gitCurrentTag = 'git describe --tags --abbrev=0'.execute([], project.rootDir).text.trim()
+
+def getGitCommit() {
+    def gitDir = new File("${new File("${rootDir}").getParent()}/.git")
+    if (!gitDir.isDirectory()) {
+        return 'non-git-build'
+    }
+
+    def cmd = 'git log --pretty=format:%h -1'
+    def gitCommit = cmd.execute().text.trim()
+    assert !gitCommit.isEmpty()
+    gitCommit
+}
+
+def ss (){
+    ext.env = System.getenv()
+    println("日志："+System.getenv())
+
+    String selfBuildName = env.get("USERNAME")
+    if (selfBuildName == null) {
+        selfBuildName = env.get("COMPUTERNAME")
+
+        if (selfBuildName == null) {
+            selfBuildName = "UNKNOWN"
+        }
+    }
+
+
+
+
+    println("========:"+selfBuildName)
+    try{
+        // .git/HEAD描述当前目录所指向的分支信息，内容示例："ref: refs/heads/master\n"
+        def headFile = new File('.git/HEAD')
+        if (headFile.exists()) {
+            String[] strings = headFile.getText('UTF-8').split(" ");
+            if (strings.size() > 1) {
+                String refFilePath = '.git/' + strings[1];
+
+                // 根据HEAD读取当前指向的hash值，路径示例为：".git/refs/heads/master"
+                def refFile = new File(refFilePath.replace("\n", ""))
+
+                // 索引文件内容为hash值+"\n"，
+                // 示例："90312cd9157587d11779ed7be776e3220050b308\n"
+                return "_" + refFile.getText('UTF-8').substring(0, 7)
+            }
+
+        }
+
+
+    }catch (Exception e){
+        e.printStackTrace()
+    }
+
+    return 'null'
+}
 android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.trust.calculatelayout"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
+        versionCode 99999999
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -16,7 +80,57 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    flavorDimensions "default"
+
+    productFlavors {
+        one{
+            dimension "default"
+        }
+
+        two{
+            dimension "default"
+        }
+
+    }
+
+
+
+
+    println("versionCode :"+gitCommitCount)
+    println("versionName :"+gitShortShaDate)
+    println("gitCommitShortHash :"+gitCommitShortHash)
+
+
+
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                //这里修改apk文件名
+                def fileName
+                if (variant.buildType.name == "release") {
+                    fileName = "${variant.productFlavors[0].name}_${defaultConfig.versionName}}.apk"
+                } else {
+                    fileName = "${variant.productFlavors[0].name}_${defaultConfig.versionName}}_debug.apk"
+                }
+                outputFileName = new File(fileName)
+            }
+        }
+    }
+
+
+
+
+
+
+
 }
+
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

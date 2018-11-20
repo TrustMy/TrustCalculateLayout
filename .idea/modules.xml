@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TrustCalculateLayout.iml" filepath="$PROJECT_DIR$/TrustCalculateLayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test.iml" filepath="$PROJECT_DIR$/test.iml" />
       <module fileurl="file://$PROJECT_DIR$/trust_calculate_layout_lib/trust_calculate_layout_lib.iml" filepath="$PROJECT_DIR$/trust_calculate_layout_lib/trust_calculate_layout_lib.iml" />
     </modules>
   </component>

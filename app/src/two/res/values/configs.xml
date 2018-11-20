@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">骑卫士</string>
+    <string name="com.eavoo.qws.channel">A360_A001</string>
+    <string name="logcat">false</string>
+</resources>
